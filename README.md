@@ -61,7 +61,9 @@ git clone https://github.com/Quikler/demotivator-parser-cli.git
 
 ## Libraries Used
 
-[commandline ](https://github.com/commandlineparser/commandline) -  The best C# command line parser that brings standardized *nix getopt style, for .NET. Includes F# support.
+[commandline](https://github.com/commandlineparser/commandline) -  The best C# command line parser that brings standardized *nix getopt style, for .NET. Includes F# support.
+
+[AngleSharp](https://github.com/AngleSharp/AngleSharp) - 👼 The ultimate angle brackets parser library parsing HTML5, MathML, SVG and CSS to construct a DOM based on the official W3C specifications.
 
 ## License
 
