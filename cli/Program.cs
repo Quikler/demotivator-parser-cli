@@ -17,15 +17,15 @@ await Parser.Default.ParseArguments<Options>(args)
         //o.FilePath = PathValidator.Validate(o.FilePath);
         //o.OutputFilePath = PathValidator.Validate(o.OutputFilePath);
 
-        if (string.IsNullOrWhiteSpace(o.FilePath))
+        if (string.IsNullOrWhiteSpace(o.FilePath) || !File.Exists(o.FilePath))
         {
-            Console.WriteLine("-f, --filepath\tCannot be empty");
+            Console.WriteLine("-f, --filepath\tFile not found");
             return;
         }
 
-        if (string.IsNullOrWhiteSpace(o.OutputFilePath))
+        if (string.IsNullOrWhiteSpace(o.OutputFilePath) || Path.GetExtension(o.OutputFilePath) == string.Empty)
         {
-            Console.WriteLine("-o, --outputpath\tCannot be empty");
+            Console.WriteLine("-o, --outputpath\tMust be a valid output file");
             return;
         }
 
