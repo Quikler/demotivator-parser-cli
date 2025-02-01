@@ -20,12 +20,17 @@ internal class Program
                     Console.WriteLine($"Verbose output disabled. Current Arguments: -v {o.Verbose}");
                 }
 
-                //o.FilePath = PathValidator.Validate(o.FilePath);
-                //o.OutputFilePath = PathValidator.Validate(o.OutputFilePath);
+                o.FilePath = Path.GetFullPath(o.FilePath);
+                o.OutputFilePath = Path.GetFullPath(o.OutputFilePath);
+
+#if DEBUG
+                Console.WriteLine($"FilePath: {o.FilePath}");
+                Console.WriteLine($"OutputFilePath: {o.OutputFilePath}");
+#endif
 
                 if (string.IsNullOrWhiteSpace(o.FilePath) || !File.Exists(o.FilePath))
                 {
-                    Console.WriteLine("-f, --filepath\tFile not found");
+                    Console.WriteLine($"-f, --filepath\t'{o.FilePath}' File not found");
                     return;
                 }
 
