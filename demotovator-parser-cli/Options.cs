@@ -1,7 +1,7 @@
 using System;
 using CommandLine;
 
-namespace cli.Arguments;
+namespace demotovator_parser_cli;
 
 public class Options
 {

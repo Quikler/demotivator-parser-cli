@@ -2,7 +2,7 @@
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 
-namespace demotivator_parser;
+namespace demotovator_parser_cli;
 
 public static class DemotivatorParser
 {

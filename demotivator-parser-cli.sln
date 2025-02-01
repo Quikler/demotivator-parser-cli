@@ -2,9 +2,7 @@
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "demotivator-parser", "demotivator-parser\demotivator-parser.csproj", "{FE0A0C23-5E45-42CA-AC18-EE4D8049B010}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cli", "cli\cli.csproj", "{2D1CB6BC-FBB3-432D-8FD4-FCB375F10099}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "demotovator-parser-cli", "demotovator-parser-cli\demotovator-parser-cli.csproj", "{2D1CB6BC-FBB3-432D-8FD4-FCB375F10099}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
