@@ -1,22 +1,20 @@
-﻿using System.Net.Http.Json;
-using AngleSharp;
-using AngleSharp.Dom;
-using AngleSharp.Html.Dom;
+﻿namespace demotovator_parser_cli;
 
-namespace demotovator_parser_cli;
-
-public static class DemotivatorParser
+public static partial class DemotivatorParser
 {
     public const string BASE_URL = "https://www.imgonline.com.ua";
 
+    [System.Text.RegularExpressions.GeneratedRegex(@"href=""(download\.php\?file=[^""]+)""", System.Text.RegularExpressions.RegexOptions.Compiled)]
+    private static partial System.Text.RegularExpressions.Regex DownloadPhpRegex();
+
     public static async Task<byte[]> ParseAsync(string filePath, string? title, string? description, bool verbose)
     {
-        var http = new HttpClient()
+        using var http = new HttpClient()
         {
             BaseAddress = new Uri(BASE_URL),
         };
 
-        var data = new MultipartFormDataContent();
+        using var data = new MultipartFormDataContent();
 
         if (verbose) Console.WriteLine("Creating multipart form data...");
 
@@ -44,21 +42,15 @@ public static class DemotivatorParser
 
         var resultHtml = await result.Content.ReadAsStringAsync();
 
-        var config = Configuration.Default;
-        var context = BrowsingContext.New(config);
+        var downloadPhp = DownloadPhpRegex().Match(resultHtml).Groups[1].Value;
 
-        var document = await context.OpenAsync(req =>
-        {
-            req.Content(resultHtml);
-            req.Address(BASE_URL);
-        });
-
-        var anchors = document.QuerySelectorAll<IHtmlAnchorElement>("a");
-        var downloadAnchor = anchors.FirstOrDefault(a => a.Href.Contains("download.php")) ?? throw new Exception("download.php link cannot be found");
+#if DEBUG
+        Console.WriteLine($"Download php: {downloadPhp}");
+#endif
 
         if (verbose) Console.WriteLine("Downloading result...");
 
-        var downloadResponse = await http.GetAsync(downloadAnchor.Href);
+        var downloadResponse = await http.GetAsync(downloadPhp);
         return await downloadResponse.Content.ReadAsByteArrayAsync();
     }
 }

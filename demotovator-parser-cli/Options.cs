@@ -1,4 +1,3 @@
-using System;
 using CommandLine;
 
 namespace demotovator_parser_cli;
