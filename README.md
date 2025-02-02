@@ -11,40 +11,25 @@ demotivator-parser-cli is a simple CLI tool that can be used to create a simple 
 
 ### See the required arguments in the output:
 ```
-demotivator-parser-cli 1.0.0+472c859a469aca61f8702c0f93c6246b46da9096
-Copyright (C) 2025 demotivator-parser-cli
-
-ERROR(S):
-  Required option 'f, filepath' is missing.
-  Required option 'o, outputpath' is missing.
-
-  -f, --filepath       Required. File path to image that will be demotivated
-
-  -o, --outputpath     Required. Output file path to demotivated image
-
-  -t, --title          Title of demotivator image
-
-  -d, --description    Description of demotivator image
-
-  -v, --verbose        Set output to verbose message
-
-  --help               Display this help screen.
-
-  --version            Display version information.
+Usage: <command> <parameters> [options]
+commands:
+        help - shows help text of command
+        demotivate - This will be help text for command
 ```
 
 ## Example usage
-Create demotivator with verbose argument of demo.jpg with title="Title" and description="Description" into output file demo-output.jpg:
+Create demotivator of demo.jpg with title="Title" and description="Description" into output file demotivated.jpg:
+
 ```
-./demotivator-parser-cli -f demo.jpg -t Title -d Description -o demo-output.jpg -v
+./demotivator-parser-cli demotivate .assets/demo.jpg .assets/demotivated.jpg
 ```
 
 ### See the result output:
 ```
-Verbose output enabled. Current Arguments: -v True
 Creating multipart form data...
 Making requests...
 OK
+Download php: download.php?file=result_img/imgonline-com-ua-Demotivator-4JBv5AeBNfhyVD.jpg
 Downloading result...
 ```
 
@@ -61,9 +46,7 @@ git clone https://github.com/Quikler/demotivator-parser-cli.git
 
 ## Libraries Used
 
-[commandline](https://github.com/commandlineparser/commandline) -  The best C# command line parser that brings standardized *nix getopt style, for .NET. Includes F# support.
-
-[AngleSharp](https://github.com/AngleSharp/AngleSharp) - 👼 The ultimate angle brackets parser library parsing HTML5, MathML, SVG and CSS to construct a DOM based on the official W3C specifications.
+[CommandLineArgsGenerator](https://github.com/xb-bx/CommandLineArgsGenerator) -  Source generator to generate command line args parser 
 
 ## License
 

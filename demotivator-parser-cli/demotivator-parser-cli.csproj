@@ -3,20 +3,26 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
     <AssemblyName>demotivator-parser-cli</AssemblyName>
+    <GenerateCompletion>True</GenerateCompletion>
+    <GenerateSuggestions>True</GenerateSuggestions>
     <PublishTrimmed>true</PublishTrimmed>
     <PublishAot>true</PublishAot>
     <IsAotCompatible>true</IsAotCompatible>
     <InvariantGlobalization>true</InvariantGlobalization>
+    <IlcDisableReflection>true</IlcDisableReflection>
     <IlcOptimizationPreference>Size</IlcOptimizationPreference>
     <IlcFoldIdenticalMethodBodies>true</IlcFoldIdenticalMethodBodies>
     <IlcGenerateStackTraceData>false</IlcGenerateStackTraceData>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="CommandLineArgsGenerator" Version="0.8.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.DotNet.ILCompiler; runtime.linux-x64.Microsoft.DotNet.ILCompiler" Version="8.0.12" />
     <TrimmableAssembly Include="demotivator-parser-cli" />
   </ItemGroup>

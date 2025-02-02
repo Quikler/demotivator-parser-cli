@@ -1,4 +1,9 @@
-﻿namespace demotovator_parser_cli;
+﻿using System;
+using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+namespace demotovator_parser_cli;
 
 public static partial class DemotivatorParser
 {
@@ -7,7 +12,7 @@ public static partial class DemotivatorParser
     [System.Text.RegularExpressions.GeneratedRegex(@"href=""(download\.php\?file=[^""]+)""", System.Text.RegularExpressions.RegexOptions.Compiled)]
     private static partial System.Text.RegularExpressions.Regex DownloadPhpRegex();
 
-    public static async Task<byte[]> ParseAsync(string filePath, string? title, string? description, bool verbose)
+    public static async Task<byte[]> ParseAsync(string filePath, string title, string description, bool verbose)
     {
         using var http = new HttpClient()
         {
